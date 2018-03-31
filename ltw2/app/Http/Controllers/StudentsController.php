@@ -7,16 +7,13 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use App\Http\Models\Students;
-use App\Http\Models\Sample;
 
-class SampleController extends Controller
+class StudentsController extends Controller
 {
     public function index() {
-		$obj = new Sample();
-		$data = $obj::all();
 		$obj = new Students();
-		$data2 = $obj::all();
-
-		return view('main', ['data' => $data],['data2' => $data2]);
+		$data = $obj::all();
+		
+		return view('hao.index', ['data' => $data]);
 	}
 }

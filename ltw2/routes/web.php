@@ -12,10 +12,12 @@
 */
 
 Route::get('/sample', [
-	'as' => 'sinhvien',
+	'as' => 'sample',
 	'uses' => 'SampleController@index'
 ]);
-Route::get('/student', [
-	'as' => 'sinhvien',
-	'uses' => 'StudentController@index'
-]);
+
+/*
+Route::get('/', function () {
+    return 'Hello World';
+});
+*/
