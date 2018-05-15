@@ -10,14 +10,35 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',function(){
+	return 'Hello world';
+});
 
-Route::get('/sample', [
+Route::get('read', [
+	'as' => 'abc',
+	'uses' => 'StudentController@index'
+]);
+Route::get('sample', [
 	'as' => 'sample',
-	'uses' => 'SampleController@index'
+	'uses' => 'MenuController@index'
+	
 ]);
 
-/*
-Route::get('/', function () {
-    return 'Hello World';
+Route::get('create', [
+	'as' => 'student',
+	'uses' => 'StudentController@createStudent'
+]);
+
+Route::get('delete/{id}','StudentController@deleteStudent');
+
+Route::get('update/{id}/edit','StudentController@getStudentByID'
+);
+
+Route::post('update','StudentController@updateStudent');
+
+Route::get('forminsert',function ()
+{
+	return view('student.insertView');
 });
-*/
+
+Route::post('insertstudent','StudentController@insertStudent');
